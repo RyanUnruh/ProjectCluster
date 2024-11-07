@@ -65,6 +65,7 @@ const TaskList = () => {
             Save Task
           </button>
         </div>
+        <br />
         <div>
           {list.map((item, i) => (
             <ListItem key={i} item={item} />

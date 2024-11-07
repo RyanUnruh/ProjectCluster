@@ -4,18 +4,18 @@ import { useNavigate } from "react-router-dom";
 const Navbar = () => {
   const navigate = useNavigate();
   const styles = {
-    navbar: {
+    nav: {
       display: "flex",
       width: "500px",
       position: "absolute",
       top: "10px",
       borderRadius: "10px",
-      justifyContent: "center", // Center the buttons horizontally
+      justifyContent: "center",
       alignItems: "center",
-      backgroundColor: "#6ba6e1", // MUI primary blue color
+      backgroundColor: "#6ba6e1",
       padding: "10px",
       height: "60px",
-      boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)", // Subtle shadow for navbar
+      boxShadow: "0px 2px 10px rgba(0, 0, 0, 0.1)",
     },
     button: {
       padding: "10px 20px",
@@ -30,14 +30,10 @@ const Navbar = () => {
       boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.2)",
       transition: "all 0.3s ease",
     },
-    buttonHover: {
-      backgroundColor: "#1565c0", // Darker blue on hover
-      transform: "scale(1.05)", // Slightly larger on hover
-    },
   };
 
   return (
-    <div style={styles.navbar}>
+    <div style={styles.nav}>
       <button onClick={() => navigate("/")} style={styles.button}>
         Home
       </button>
