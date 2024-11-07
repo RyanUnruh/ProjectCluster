@@ -11,11 +11,15 @@ const TaskList = () => {
     setList((prev) => [...prev, newItem]);
     setItem({ subject: "", details: "" });
   };
-  console.log(list);
-  console.log(Math.floor(Math.random() * list.length));
+
   const getRandomColor = () => {
     const colors = ["#8ecae6", "#219ebc", "#023047", "#0077b6", "#4cc9f0"];
     return colors[Math.floor(Math.random() * colors.length)];
+  };
+
+  const deleteItem = (i) => {
+    const newList = list.filter((_, index) => i !== index);
+    setList([...newList]);
   };
   const styles = {
     container: { backgroundColor: "#ffb703", borderRadius: "10px", padding: "20px", marginTop: "10px", minHeight: "100px" },
@@ -42,7 +46,8 @@ const TaskList = () => {
     },
   };
 
-  const ListItem = ({ item }) => {
+  const ListItem = (props) => {
+    const { handleDelete, item } = props;
     return (
       <div style={{ ...styles.item, backgroundColor: item.color, marginTop: "10px", padding: "10px" }}>
         <h5 style={styles.subject}>{item.subject}</h5>
@@ -51,9 +56,11 @@ const TaskList = () => {
             <p style={styles.details}>{item.subject}</p>
           </>
         )}
+        <button onClick={handleDelete}>X</button>
       </div>
     );
   };
+
   return (
     <>
       <h3>Task List</h3>
@@ -68,7 +75,7 @@ const TaskList = () => {
         <br />
         <div>
           {list.map((item, i) => (
-            <ListItem key={i} item={item} />
+            <ListItem handleDelete={() => deleteItem(i)} key={i} item={item} />
           ))}
         </div>
       </div>
