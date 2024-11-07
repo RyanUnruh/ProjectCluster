@@ -19,7 +19,6 @@ const TicTacToe = () => {
   ];
 
   const checkForWinnerOrDraw = () => {
-    console.log(squares);
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
 
@@ -36,7 +35,6 @@ const TicTacToe = () => {
 
   const onCellClick = (i) => {
     if (squares[i] || winner) return;
-
     const newSquares = [...squares];
     newSquares[i] = isXTurn ? "X" : "O";
     setSquares(newSquares);
@@ -58,6 +56,8 @@ const TicTacToe = () => {
   };
   return (
     <>
+      <h3>Tic Tac Toe</h3>
+
       <div>
         <header style={{ display: "flex", height: "100px", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
           <p>
