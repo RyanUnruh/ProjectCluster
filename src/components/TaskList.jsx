@@ -23,7 +23,7 @@ const TaskList = () => {
   };
   const styles = {
     container: { backgroundColor: "#ffb703", borderRadius: "10px", padding: "20px", marginTop: "10px", minHeight: "100px" },
-    item: { minHeight: "30px", borderRadius: "10px" },
+    item: { display: "flex", justifyContent: "space-between", minHeight: "30px", borderRadius: "10px", marginTop: "10px", padding: "10px 15px" },
     subject: { color: "white", margin: "0px", fontSize: "18px" },
     details: { color: "white", margin: "0px", fontSize: "15px" },
     button: {
@@ -49,14 +49,18 @@ const TaskList = () => {
   const ListItem = (props) => {
     const { handleDelete, item } = props;
     return (
-      <div style={{ ...styles.item, backgroundColor: item.color, marginTop: "10px", padding: "10px" }}>
-        <h5 style={styles.subject}>{item.subject}</h5>
-        {item.details && (
-          <>
-            <p style={styles.details}>{item.subject}</p>
-          </>
-        )}
-        <button onClick={handleDelete}>X</button>
+      <div style={{ ...styles.item, backgroundColor: item.color }}>
+        <div>
+          <h5 style={styles.subject}>{item.subject}</h5>
+          {item.details && (
+            <>
+              <p style={styles.details}>{item.details}</p>
+            </>
+          )}
+        </div>
+        <a style={{ fontSize: "20px", alignItems: "center", fontWeight: "bold", cursor: "pointer" }} onClick={handleDelete}>
+          X
+        </a>
       </div>
     );
   };
